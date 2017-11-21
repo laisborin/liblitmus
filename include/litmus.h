@@ -330,6 +330,8 @@ int get_nr_ts_release_waiters(void);
  */
 int read_litmus_stats(int *ready, int *total);
 
+int run_add_node(int *id, lt_t *rate_a, lt_t *rate_b, int *level);
+
 /**
  * Sleep for given time
  * @param timeout Sleep time in nanoseconds

@@ -67,7 +67,7 @@ AR  := ${CROSS_COMPILE}${AR}
 
 all     = lib ${rt-apps}
 rt-apps = cycles base_task rt_launch rtspin release_ts measure_syscall \
-	  base_mt_task uncache runtests resctl
+	  base_mt_task uncache runtests resctl run_add_node
 
 .PHONY: all lib clean dump-config TAGS tags cscope help doc
 
@@ -227,6 +227,9 @@ obj-measure_syscall = null_call.o
 lib-measure_syscall = -lm
 
 obj-resctl = resctl.o
+
+obj-run_add_node = run_add_node.o common.o
+lib-run_add_node = -lrt
 
 
 # ##############################################################################

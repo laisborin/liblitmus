@@ -103,6 +103,16 @@ int null_call(cycles_t *timestamp)
 	return litmus_syscall(LRT_null_call, (unsigned long) timestamp);
 }
 
+int run_add_node(int *id, lt_t *rate_a, lt_t *rate_b, int *level)
+{
+	union litmus_syscall_args args;
+	args.run_add_node.id = id;
+	args.run_add_node.rate_a = rate_a;
+	args.run_add_node.rate_b = rate_b;
+	args.run_add_node.level = level;
+	return syscall(LRT_run_add_node, (unsigned long) &args);
+}
+
 int get_current_budget(
 	lt_t *expended,
 	lt_t *remaining)
